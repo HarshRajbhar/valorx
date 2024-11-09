@@ -1,14 +1,12 @@
 import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { SharedDataService } from '../Services/shared-data.service';
-import { list } from '../../assets/interface';
 
 @Component({
   selector: 'app-form-crud',
