@@ -1,1 +1,47 @@
-<p>list-data works!</p>
+<div class="mt-8" *ngIf="ListData && ListData.length > 0">
+  <h3 class="text-xl font-semibold mb-4">Submitted User Data</h3>
+  <table
+    class="min-w-full table-auto bg-gray-50 border-collapse rounded-lg overflow-hidden shadow-md"
+  >
+    <thead class="bg-indigo-600 text-white">
+      <tr class="Grid">
+        <th class="py-3 text-center w-full">Sr no.</th>
+        <th class="py-3 text-center w-full">First Name</th>
+        <th class="py-3 text-center w-full">Last Name</th>
+        <th class="py-3 text-center w-full">Email</th>
+        <th class="py-3 text-center w-full">Phone</th>
+        <th class="py-3 text-center w-full">Address</th>
+        <th class="py-3 text-center w-full">Gender</th>
+        <th class="py-3 text-center w-full">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let user of ListData; let i = index"
+        class="hover:bg-indigo-100 Grid cursor-pointer items-center transition-colors duration-300"
+      >
+        <td class="py-3 text-center w-full border-b">{{ i + 1 }}</td>
+        <td class="py-3 text-center w-full border-b">{{ user.f_name }}</td>
+        <td class="py-3 text-center w-full border-b">{{ user.l_name }}</td>
+        <td class="py-3 text-center w-full border-b">{{ user.email }}</td>
+        <td class="py-3 text-center w-full border-b">{{ user.phone }}</td>
+        <td class="py-3 text-center w-full border-b">{{ user.address }}</td>
+        <td class="py-3 text-center w-full border-b">{{ user.gender }}</td>
+        <!-- Action -->
+        <td
+          class="py-3 text-center w-full border-b flex gap-5 items-center justify-center"
+        >
+          <!-- Delete -->
+          <span>
+            <img
+              src="/assets/svgs/delete.svg"
+              alt="/assets/svgs/delete.svg"
+              (click)="sharedserve.Deletedata(i)"
+              class="w-5 h-5"
+            />
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
